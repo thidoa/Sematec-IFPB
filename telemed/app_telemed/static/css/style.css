@@ -49,7 +49,7 @@ td.confirmado {
 
 td.cancelado {
   background-color: red;
-}
+} 
 
 #home {
   height: calc(88.5vh - 20px);
@@ -135,13 +135,13 @@ h2.servicos-txt {
 }
 
 .card {
-    width: 20rem;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    border: 1px solid rgba(0,0,0, .2);
+  width: 20rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border: 1px solid rgba(0,0,0, .2);
 }
 
 .card-infos {
@@ -256,7 +256,13 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: auto; 
+  margin-bottom: 20px;
+}
+
+.tabelas {
+  display: flex;
+  justify-content: center;
 }
 
 .consultas-infos {
@@ -273,7 +279,9 @@ h1.consultas-txt {
 
 table {
   border-collapse: collapse;
-}
+  width: 90%;
+
+} 
 
 caption {
   font-size: 1.3rem;
@@ -284,7 +292,8 @@ caption {
 th, td {
   border: 1px solid black;
   padding: 10px;
-}
+  text-align: center;
+} 
 
 
 

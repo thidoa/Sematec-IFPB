@@ -17,7 +17,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html"><img src="{% static 'images/logo.png'%}"></a>
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png'%}"></a>
             <ul>
                 <li><a href="#consultas">Consultas</a></li>
                 <li><a href="{% url 'logout' %}">Sair</a></li>
@@ -41,13 +41,13 @@
             </div>
         </section>
 
-         <section id="consultas">
+        <section id="consultas">
             <div class="consultas-infos">
                 <h1 class="consultas-txt">Consultas</h1>
             </div>
 
             <div class="tabelas">
-                <table width="1200px" height="600px">
+                <table>
                     <thead>
                         <tr>
                             <th>Código da consulta</th>
@@ -62,19 +62,40 @@
                     </thead>
 
                     <tbody>
-                        <tr> {% for consulta in consultas %}
-                            <td>{{ consulta.id }}</td>
-                            <td>{{ consulta.data_requisito }}</td>
-                            <td>{{ consulta.data_consulta }}</td>
-                            <td>{{ consulta.obs }}</td>
-                            {%if consulta.link_consulta != None %} <td>{{ consulta.link_consulta }}</td> {%else%} <td> Nenhum link disponível </td> {%endif%}
-                            {%if consulta.documento == None %} <th> {{ consulta.documento }} </th> {%else%} <td> Nenhum documento disponível </td> {%endif%}
-                            <td {% if consulta.status == 0%}> Pendente </td>{% elif consulta.status == 1 %}> Confirmado </td> {% elif consulta.status == 2 %}> Cancelado </td> {% elif consulta.status == 3 %}> Finalizado </td> {% endif %}
-                        </tr> {% endfor %}
+                        {% for consulta in consultas %}
+                            <tr> 
+                                <td>{{ consulta.id }}</td>
+                                <td>{{ consulta.data_requisito }}</td>
+                                <td>{{ consulta.data_consulta }}</td>
+                                <td>{{ consulta.obs }}</td>
+                                {% if consulta.link_consulta != None %}
+                                    <td>{{ consulta.link_consulta }}</td> 
+                                {% else %} 
+                                    <td> Nenhum link disponível </td> 
+                                {% endif %}
+                                
+                                {% if consulta.documento == None %} 
+                                    <th>{{ consulta.documento }}</th>
+                                {%else%}
+                                    <td> Nenhum documento disponível </td> 
+                                {% endif %}
+
+                                {% if consulta.status == 0%}
+                                    <td class="pendente"> Pendente </td>
+                                {% elif consulta.status == 1 %} 
+                                    <td class="confirmado">Confirmado</td> 
+                                {% elif consulta.status == 2 %}
+                                    <td class="cancelado">Cancelado</td> 
+                                {% elif consulta.status == 3 %} 
+                                    <td class="finalizado">Finalizado </td> 
+                                {% endif %}
+                            
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
-        </section> -->
+        </section>
 
     </main>
 </body>
