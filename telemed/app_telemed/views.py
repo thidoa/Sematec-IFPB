@@ -9,7 +9,6 @@ from django.contrib.auth import logout
 
 def index(request):
 	usuario = request.user
-
 	if usuario.is_authenticated:
 		if hasattr(usuario, 'medico'):
 			consultas2 = Consulta.objects.filter(id_med=usuario.id)
@@ -57,6 +56,8 @@ def logout_view(request):
     return redirect('/')
 
 def login(request):
+	if request.user.is_authenticated:
+		return redirect('index')
 	formulario = LoginForm(request.POST or None)
 
 	if request.method == 'POST' and formulario.is_valid():

@@ -1,0 +1,19 @@
+{% load static %}
+<header>
+    <nav>
+        <a href="/"><img src="{%static 'images/logo.png'%}"></a>
+        {% if not user.is_authenticated %}
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#about">Sobre</a></li>
+                <li><a href="/login/">Entrar</a></li>
+            </ul>
+        {% else %}
+            <ul>
+                <li><a href="#consultas">Consultas</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+</header>
