@@ -138,3 +138,12 @@ def negar_consulta(request, consulta_id):
 			return redirect('/')
 	return redirect('/')
 
+
+def link_consulta(request, id):
+	consulta = Consulta.objects.get(id=id)
+	
+	if request.method == "POST":
+		link = request.POST['link_consulta']
+		consulta.link_consulta = link
+		consulta.save()
+	return redirect('index')

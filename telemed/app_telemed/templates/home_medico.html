@@ -55,9 +55,15 @@
                                 <td>{{ consulta.obs }}</td>
 
                                 {%if consulta.link_consulta != None %} 
-                                    <td>{{ consulta.link_consulta }}</td>
+                                    <td><a class="l_consulta" href="{{consulta.link_consulta}}" target="_blank">{{ consulta.link_consulta }}</a></td> 
                                 {%else%} 
-                                    <td> Nenhum link disponível </td>
+                                    <td>
+                                        <form  class="link_consulta" method="POST" action="{% url 'link_consulta' consulta.id %}">
+                                            {% csrf_token %}
+                                            <input type="text" name="link_consulta">
+                                            <button class="button-tabela" type="submit">Add link</button>
+                                        </form>
+                                    </td>
                                 {%endif%}
 
                                 {%if consulta.documento == None %}
@@ -76,13 +82,13 @@
                                     <td class="finalizado">Finalizado </td>
                                 {% endif %}
 
-                                {% if consulta.status == 0%}
+                                {% if consulta.status == 0 %}
                                     <td><a href = "/aceitar/consulta/{{ consulta.id }}"><button class="button-tabela">Aceitar</button></a></td>  
-                                {%endif%}
+                                {% endif %}
 
-                                {% if consulta.status == 0%}
+                                {% if consulta.status == 0 %}
                                     <td><a href= "/negar/consulta/{{ consulta.id }}" ><button class="button-tabela">Recusar</button></a></td>
-                                {%endif%}
+                                {% endif %}
                             </tr> 
                         {% endfor %}
                     </tbody>

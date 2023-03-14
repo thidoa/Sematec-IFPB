@@ -10,5 +10,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('registrar/consulta/', views.registrar_consulta, name='registrar_consulta'),
     path('aceitar/consulta/<int:consulta_id>', views.aceitar_consulta, name='aceitar_consulta'),
-    path('negar/consulta/<int:consulta_id>', views.negar_consulta, name='negar_consulta')
+    path('negar/consulta/<int:consulta_id>', views.negar_consulta, name='negar_consulta'),
+    path('link_consulta/<int:id>', views.link_consulta, name='link_consulta'),
 ]

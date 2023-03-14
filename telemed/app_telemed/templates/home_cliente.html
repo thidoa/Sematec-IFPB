@@ -54,7 +54,7 @@
                                 <td>{{ consulta.data_consulta }}</td>
                                 <td>{{ consulta.obs }}</td>
                                 {% if consulta.link_consulta != None %}
-                                    <td>{{ consulta.link_consulta }}</td> 
+                                    <td><a class="l_consulta" href="{{consulta.link_consulta}}" target="_blank">{{ consulta.link_consulta }}</a></td> 
                                 {% else %} 
                                     <td> Nenhum link disponível </td> 
                                 {% endif %}

@@ -295,6 +295,23 @@ th, td {
   text-align: center;
 } 
 
+.link_consulta {
+  display: flex;
+  gap: 10px;
+}
+
+.link_consulta input {
+  border: none;
+  padding: 1rem 2.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  outline: 1px solid #4461f2;
+}
+
+.link_consulta input:focus {
+  outline: 2px solid #4461f2;
+}
+
 .button-tabela {
   border: none;
   padding: 0.7rem 1.5rem;
@@ -310,6 +327,11 @@ th, td {
 .button-tabela:hover {
   background-color: #2341d6;
 }
+
+.l_consulta {
+  color: #2341d6;
+}
+
 
 
 
