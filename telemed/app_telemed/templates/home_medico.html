@@ -84,11 +84,11 @@
                                 {% endif %}
 
                                 {% if consulta.status == 0%}
-                                    <td><a href = "/aceitar/consulta/{{ consulta.id }}"><button>Aceitar</button></a></td>  
+                                    <td><a href = "/aceitar/consulta/{{ consulta.id }}"><button class="button-tabela">Aceitar</button></a></td>  
                                 {%endif%}
 
                                 {% if consulta.status == 0%}
-                                    <td><a href= "/negar/consulta/{{ consulta.id }}" ><button>Recusar</button></a></td>
+                                    <td><a href= "/negar/consulta/{{ consulta.id }}" ><button class="button-tabela">Recusar</button></a></td>
                                 {%endif%}
                             </tr> 
                         {% endfor %}

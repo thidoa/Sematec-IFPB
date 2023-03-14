@@ -295,6 +295,22 @@ th, td {
   text-align: center;
 } 
 
+.button-tabela {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  background-color: #4461f2;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+
+.button-tabela:hover {
+  background-color: #2341d6;
+}
+
 
 
 

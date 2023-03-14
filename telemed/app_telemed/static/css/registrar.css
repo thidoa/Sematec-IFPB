@@ -89,6 +89,30 @@ form{
     gap: 16px;
 }
 
+form input {
+    border: none;
+    padding: 1rem 2.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    outline: 1px solid #4461f2;
+}
+  
+form input:focus {
+    outline: 2px solid #4461f2;
+}
+
+form select {
+    border: none;
+    padding: 1rem 2.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    outline: 1px solid #4461f2;
+}
+
+form select:focus {
+    outline: 2px solid #4461f2;
+}
+
 div.ap {
     align-items: left;
 }
@@ -107,9 +131,14 @@ form>div{
     outline: none;
     border: none;
     background: none;
+    border-radius: 0;
     border-bottom: 1px solid black;
     width: 80%;
     font-size: 18px;
+}
+
+.input-t:focus {
+    outline: none;
 }
 
 span{
