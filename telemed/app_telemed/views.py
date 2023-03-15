@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import MedicoFormRegister, ClienteFormRegister, LoginForm, ConsultasForm
 from .models import Medico, Cliente, Consulta
 from django.contrib.auth import logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -61,7 +62,10 @@ def login(request):
 	formulario = LoginForm(request.POST or None)
 
 	if request.method == 'POST' and formulario.is_valid():
-		formulario.login(request)
+		if formulario.login(request) == False:
+			messages.error(request, 'Email ou senha incorretos!')
+		else:
+			messages.success(request, 'Login realizado com sucesso!')
 		return redirect('/')
 
 	context = {
@@ -104,6 +108,7 @@ def registrar_consulta(request):
 
 		if request.method == 'POST' and formulario.is_valid():
 			formulario.save(clid=cliente.id)
+			messages.success(request, "Consulta marcada com sucesso!")
 			return redirect('/')
 
 		context = {

@@ -249,6 +249,7 @@ footer {
 
 .cliente-p {
   font-size: 1rem;
+  margin-bottom: 0px !important;
 }
 
 #consultas {

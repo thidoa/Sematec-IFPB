@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from .encrypting import encriptar_senha
 from .choices import medic_choices
+from django.contrib import messages
 
 class MedicoFormRegister(forms.Form):
 	wdgt = forms.TextInput(attrs={'class':'input-text', 'placeholder':'Digite sua senha...','type':'password'})
@@ -69,22 +70,27 @@ class ClienteFormRegister(forms.Form):
 		cliente.save()
 
 class LoginForm(forms.Form):
-	username = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'placeholder':'Digite seu email...'}))
+	username = forms.CharField(label='', required=True, widget=forms.TextInput(attrs={'placeholder':'Digite seu email...', 'type':'email'}))
 	senha = forms.CharField(label='', strip=False, widget=forms.TextInput(attrs={'placeholder':'Digite sua senha...', 'type':'password'}), required=True)
 
 	def login(self, request):
 		data = self.cleaned_data
 
 		if Medico.objects.filter(username=data['username']).exists():
+			
 			medico = auth.authenticate(request, username=data['username'], password=data['senha'])
 			if medico != None:
 				auth.login(request, medico)
 				print('Medico Logado')
+			return True
 		elif Cliente.objects.filter(username=data['username']).exists():
 			cliente = auth.authenticate(request, username=data['username'], password=data['senha'])
 			if cliente != None:
 				auth.login(request, cliente)
 				print('Cliente Logado')
+			return True
+		else:
+			return False
 
 class ConsultasForm(forms.Form):
 

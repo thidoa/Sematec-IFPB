@@ -2,13 +2,14 @@
 {% load static %}
 {% block content %}
 
-    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css'%}" /> -->
     <title>TeleMed</title>
 </head>
 
 <body>
     
     {% include 'partials/_menu.html' %}
+    {% include 'partials/_alert.html' %}
 
     <main>
         <section class="medico">
